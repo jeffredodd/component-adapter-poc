@@ -37,11 +37,6 @@ export const ComponentsProvider = ({
     ...value,
   };
 
-  console.log("Default components are", defaultComponents);
-  console.log("Value is", value);
-
-  console.log("Context value is", contextValue);
-
   return (
     <ComponentsContext.Provider value={contextValue}>
       {children}

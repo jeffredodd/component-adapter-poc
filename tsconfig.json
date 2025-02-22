@@ -2,8 +2,7 @@
   "files": [],
   "references": [
     { "path": "./apps/web" },
-    { "path": "./packages/component-library" },
-    { "path": "./packages/adapter" }
+    { "path": "./packages/component-library" }
   ],
   "compilerOptions": {
     "target": "ES6",
@@ -15,8 +14,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@component-library/*": ["packages/component-library/src/*"],
-      "@adapter/*": ["packages/adapter/src/*"]
+      "@component-library/*": ["packages/component-library/src/*"]
     },
     "composite": true
   }

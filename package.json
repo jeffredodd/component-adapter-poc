@@ -1,5 +1,5 @@
 {
-    "name": "my-turbo-repo",
+    "name": "component-adapter-poc",
     "private": true,
     "workspaces": [
         "apps/*",

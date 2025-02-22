@@ -2207,15 +2207,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"adapter@workspace:packages/adapter":
-  version: 0.0.0-use.local
-  resolution: "adapter@workspace:packages/adapter"
-  dependencies:
-    react: "npm:^18.0.0"
-    typescript: "npm:^5.7.3"
-  languageName: unknown
-  linkType: soft
-
 "agent-base@npm:^7.1.0, agent-base@npm:^7.1.2":
   version: 7.1.3
   resolution: "agent-base@npm:7.1.3"
@@ -2956,6 +2947,14 @@ __metadata:
   checksum: 10c0/84a76c08fe6cc08c9c93f62ac573d2907d8e79138999312c92d4155bc2325d487d64d13f669b2000c9f8caf70493c1be2dac74fec3c51d5a04f8bc3ae1830bab
   languageName: node
   linkType: hard
+
+"component-adapter-poc@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "component-adapter-poc@workspace:."
+  dependencies:
+    turbo: "npm:^2.4.2"
+  languageName: unknown
+  linkType: soft
 
 "component-library@workspace:*, component-library@workspace:packages/component-library":
   version: 0.0.0-use.local
@@ -6722,14 +6721,6 @@ __metadata:
   checksum: 10c0/7f17ef7e1b8f0353fc128437355460e0933a075f1d0180bd979504e374960cae514265d1113a87bbb7c60089af17d93790e0ac0d1311400e5cc8ddea7ae9ebdc
   languageName: node
   linkType: hard
-
-"my-turbo-repo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "my-turbo-repo@workspace:."
-  dependencies:
-    turbo: "npm:^2.4.2"
-  languageName: unknown
-  linkType: soft
 
 "mz@npm:^2.7.0":
   version: 2.7.0

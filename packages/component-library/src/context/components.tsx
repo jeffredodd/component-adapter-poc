@@ -1,21 +1,23 @@
 import {
   Button,
   ButtonProps,
-} from "@component-library/components/button/button";
-import { Input, InputProps } from "@component-library/components/input/input";
-import { Table, TableProps } from "@component-library/components/table/table";
+  Input,
+  InputProps,
+  Table,
+  TableProps,
+} from "../components";
 import React, { createContext } from "react";
 
 export interface ComponentsContextType {
-  ButtonComponent: (props: ButtonProps) => JSX.Element | null;
-  InputComponent: (props: InputProps) => JSX.Element | null;
-  TableComponent: (props: TableProps) => JSX.Element | null;
+  Button: (props: ButtonProps) => JSX.Element | null;
+  Input: (props: InputProps) => JSX.Element | null;
+  Table: (props: TableProps) => JSX.Element | null;
 }
 
 const defaultComponents: ComponentsContextType = {
-  ButtonComponent: (props: ButtonProps) => <Button {...props} />,
-  InputComponent: (props: InputProps) => <Input {...props} />,
-  TableComponent: (props: TableProps) => <Table {...props} />,
+  Button: (props: ButtonProps) => <Button {...props} />,
+  Input: (props: InputProps) => <Input {...props} />,
+  Table: (props: TableProps) => <Table {...props} />,
 };
 
 export const ComponentsContext =
@@ -34,6 +36,11 @@ export const ComponentsProvider = ({
     ...defaultComponents,
     ...value,
   };
+
+  console.log("Default components are", defaultComponents);
+  console.log("Value is", value);
+
+  console.log("Context value is", contextValue);
 
   return (
     <ComponentsContext.Provider value={contextValue}>

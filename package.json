@@ -12,5 +12,5 @@
         "dev": "turbo run dev",
         "build": "turbo run build"
     },
-    "packageManager": "npm@10.9.0"
+    "packageManager": "yarn@4.6.0"
 }

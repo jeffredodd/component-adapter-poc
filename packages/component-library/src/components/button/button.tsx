@@ -1,6 +1,6 @@
 import React from "react";
 
-export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = Partial<React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
 };
 

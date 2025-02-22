@@ -4,7 +4,8 @@
     "private": true,
     "main": "dist/index.js",
     "scripts": {
-        "dev": "ladle dev",
+        "ladle": "ladle dev",
+        "dev": "tsc --watch",
         "build": "tsc --build"
     },
     "dependencies": {

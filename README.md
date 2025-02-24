@@ -5,4 +5,4 @@
 - `yarn run dev` 
 
 ## How to change adapter
-- Adapter can be changed in both `entry.client.tsx` and `entry.server.tsx`
+- In order to swap between adapters, code must be changed in both `entry.client.tsx` and `entry.server.tsx`

@@ -22,7 +22,9 @@ out
 dist
 
 # turborepo cache and build outputs
-/.turbo
+**/.turbo
+**/.turbo/**
+packages/*/.turbo
 
 # transpiled JavaScript files
 *.js

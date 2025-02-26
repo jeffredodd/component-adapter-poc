@@ -2,8 +2,13 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "moduleResolution": "bundler",
+    "types": ["vitest/globals"],
+    "allowJs": true,
+    "skipLibCheck": true
   },
-  "include": ["src"],
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test.tsx", "src/**/*.test.ts", "src/test/**/*"],
   "references": []
 }

@@ -6,7 +6,7 @@ import {
   Table,
   TableProps,
 } from "../components";
-import React, { createContext } from "react";
+import React, { createContext, useMemo } from "react";
 
 export interface ComponentsContextType {
   Button: (props: ButtonProps) => JSX.Element | null;
@@ -32,10 +32,13 @@ export const ComponentsProvider = ({
   children,
   value = {},
 }: ComponentsProviderProps) => {
-  const contextValue: ComponentsContextType = {
-    ...defaultComponents,
-    ...value,
-  };
+  // Memoize the context value to prevent unnecessary re-renders
+  const contextValue: ComponentsContextType = useMemo(() => {
+    return {
+      ...defaultComponents,
+      ...value,
+    };
+  }, []);
 
   return (
     <ComponentsContext.Provider value={contextValue}>

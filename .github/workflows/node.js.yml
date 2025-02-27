@@ -2,41 +2,38 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.x]  # Only test on the latest Node.js
+        node-version: [22.x]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Enable Corepack and install correct Yarn version
+      - name: Enable Corepack and install Yarn
         run: |
           corepack enable
           corepack prepare yarn@4.6.0 --activate
-          echo "Using Yarn version: $(yarn --version)"
+          yarn --version
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
-
-      - name: Verify Yarn version
-        run: yarn --version  # Should output 4.6.0
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Run build
-        run: yarn run build
+      - name: Run Turbo Build (Ensures component-library is built first)
+        run: yarn turbo run build --filter=component-library && yarn turbo run build
 
       - name: Run tests
-        run: yarn run test
+        run: yarn turbo run test

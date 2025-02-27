@@ -6,13 +6,21 @@
     "scripts": {
         "ladle": "ladle dev",
         "dev": "tsc --watch",
-        "build": "tsc --build"
+        "build": "tsc --build",
+        "test": "vitest"
     },
     "dependencies": {
         "react": "^18.0.0"
     },
     "devDependencies": {
+        "@testing-library/jest-dom": "^6.1.5",
+        "@testing-library/react": "^14.1.2",
+        "@testing-library/user-event": "^14.6.1",
+        "@types/testing-library__user-event": "^4.2.0",
+        "@vitejs/plugin-react": "^4.2.1",
+        "jsdom": "^23.0.1",
         "ladle": "latest",
-        "typescript": "^5.7.3"
+        "typescript": "^5.7.3",
+        "vitest": "^1.0.4"
     }
 }

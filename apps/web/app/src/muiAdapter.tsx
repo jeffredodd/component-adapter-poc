@@ -1,26 +1,41 @@
-import { Button, Input, Table, ButtonProps, InputProps } from "@mui/material";
-import { ComponentsContextType } from "component-library";
+import { Button, Input } from "@mui/material";
+import {
+  ButtonProps,
+  ComponentsContextType,
+  InputProps,
+} from "component-library";
 
 export const muiAdapter: Partial<ComponentsContextType> = {
-  Button: (props) => (
-    <Button className="test" color="primary" {...(props as ButtonProps)}>
-      Hi
-    </Button>
-  ),
-  Input: (props) => (
-    <Input placeholder="Type something..." {...(props as InputProps)} />
-  ),
-  Table: (props) => (
-    <Table
-      {...props}
-      sx={{
-        width: "100%",
-        borderCollapse: "collapse",
-        "& th, td": {
-          border: "1px solid black",
-          padding: "8px",
-        },
-      }}
-    />
-  ),
+  Button: (props: ButtonProps) => {
+    const { variant = "primary", ...buttonProps } = props;
+    const colorMap: {
+      [key: string]: "primary" | "secondary" | "info" | undefined;
+    } = {
+      primary: "primary",
+      secondary: "secondary",
+      tertiary: "info",
+    };
+    return (
+      <Button
+        className="example-class"
+        color={colorMap[variant]}
+        {...buttonProps}
+      >
+        Hi
+      </Button>
+    );
+  },
+  Input: (props: InputProps) => {
+    const { onBlur, ...inputProps } = props;
+    return (
+      <Input
+        onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+          // Custom blur code could go here
+          onBlur?.(e);
+        }}
+        placeholder="Type something..."
+        {...inputProps}
+      />
+    );
+  },
 };

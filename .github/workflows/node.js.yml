@@ -17,17 +17,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Enable Corepack and install correct Yarn version
+        run: |
+          corepack enable
+          corepack prepare yarn@4.6.0 --activate
+          echo "Using Yarn version: $(yarn --version)"
+
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
-
-      - name: Enable Corepack and update Yarn
-        run: |
-          corepack enable
-          corepack prepare yarn@stable --activate
-          yarn set version 4.6.0
 
       - name: Verify Yarn version
         run: yarn --version  # Should output 4.6.0

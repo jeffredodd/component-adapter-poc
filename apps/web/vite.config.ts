@@ -21,4 +21,12 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  resolve: {
+    alias: {
+      "component-library": new URL(
+        "../../packages/component-library/dist",
+        import.meta.url
+      ).pathname,
+    },
+  },
 });

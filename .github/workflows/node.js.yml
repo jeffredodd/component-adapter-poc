@@ -23,10 +23,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
-      - name: Enable Corepack and set Yarn 4.6.0
+      - name: Enable Corepack and update Yarn
         run: |
           corepack enable
-          corepack prepare yarn@4.6.0 --activate
+          corepack prepare yarn@stable --activate
+          yarn set version 4.6.0
 
       - name: Verify Yarn version
         run: yarn --version  # Should output 4.6.0

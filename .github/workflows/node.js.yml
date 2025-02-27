@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: [22.x] # Only test on latest Node.js
 
     steps:
       - name: Checkout repository
@@ -32,8 +32,13 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Run Turbo Build (Ensures component-library is built first)
-        run: yarn turbo run build --filter=component-library && yarn turbo run build
+      - name: Build component-library first
+        run: |
+          yarn turbo run build --filter=component-library
+          ls -l packages/component-library/dist  # Check if dist exists
+
+      - name: Run full Turbo build
+        run: yarn turbo run build
 
       - name: Run tests
         run: yarn turbo run test
